@@ -2,7 +2,7 @@ import React from "react";
 import "./ApiData.css";
 import { useEffect, useState } from "react";
 import ShowItem from "./ShowItem";
-
+import Pagination from "./Pagination";
 
 const ApiData = () => {
     // State
@@ -66,6 +66,7 @@ const ApiData = () => {
             </div>
             <div>
                 <p>Pagination div</p>
+                <Pagination pageCount={pageCount} handlePageClick={handlePageClick} />
             </div>
         </div>
     )
