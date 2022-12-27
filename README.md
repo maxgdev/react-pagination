@@ -1,6 +1,6 @@
 # React Pagination Demo using react-paginate package
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-Coded totally in Codepaces
+Coded totally in Codespaces
 
 ### `npm start`
 
