@@ -28,9 +28,6 @@ const ShowItem = ({ title, body, userId, id }) => {
   
                 </div>
 
-            
-
-                 
             </div>
         </div>
     )

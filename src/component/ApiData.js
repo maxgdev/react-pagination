@@ -62,10 +62,8 @@ const ApiData = () => {
                     // Better to use SPREAD operator
                 />
                 ))}
-
             </div>
             <div>
-                <p>Pagination div</p>
                 <Pagination pageCount={pageCount} handlePageClick={handlePageClick} />
             </div>
         </div>
