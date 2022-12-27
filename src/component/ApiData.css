@@ -2,3 +2,15 @@
     text-align: center;
     margin-top: 50px;
 }
+.card-design {
+    margin: 10px;
+    padding: 5px;
+}
+
+.card-design:hover {
+   border-left: 5px solid tomato;
+}
+.collapse-icons {
+    justify-content: space-around;
+    display: flex;
+}

@@ -5,10 +5,23 @@ import ShowItem from "./ShowItem";
 
 
 const ApiData = () => {
-
+    // State
     const [data, setData] = useState([]);
-
+    const [currentPage, setCurrentPage] = useState(1);
+    // URL for REST API
     const ApiURL = "https://jsonplaceholder.typicode.com/posts";
+    // Other constants
+    const ItemsPerPage = 5;
+    const offset = currentPage * ItemsPerPage;
+    const currentPageData = data.slice(offset, offset + ItemsPerPage);
+    const pageCount = Math.ceil(data.length/ItemsPerPage);
+
+
+    // functions
+
+    const handlePageClick = ({selected: selectedPage})=> {
+        setCurrentPage(selectedPage);
+    }
 
     const loadApiData = () => {
         fetch(ApiURL, {
@@ -34,7 +47,7 @@ const ApiData = () => {
             <div className="info-design">
                 <h2>List of Posts</h2>
                 {/* <p>{JSON.stringify(data)}</p> */}
-                {data.map((item, index) => (
+                {currentPageData.map((item, index) => (
                     // < ShowItem 
                     //     key={item.id} 
                     //     title={item.title} 
@@ -50,6 +63,9 @@ const ApiData = () => {
                 />
                 ))}
 
+            </div>
+            <div>
+                <p>Pagination div</p>
             </div>
         </div>
     )
