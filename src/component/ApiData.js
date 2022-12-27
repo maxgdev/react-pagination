@@ -1,6 +1,7 @@
 import React from "react";
 import "./ApiData.css";
 import { useEffect, useState } from "react";
+import ShowItem from "./ShowItem";
 
 
 const ApiData = () => {
@@ -13,18 +14,18 @@ const ApiData = () => {
         fetch(ApiURL, {
             method: "GET",
         })
-        .then((res)=> res.json())
-        .then((result)=> {
-            if(result){
-                setData(result);
-            }
-        })
-        .catch((err)=> {
-            console.log("Api Error: ", err)
-        })
+            .then((res) => res.json())
+            .then((result) => {
+                if (result) {
+                    setData(result);
+                }
+            })
+            .catch((err) => {
+                console.log("Api Error: ", err)
+            })
     }
 
-    useEffect(()=> {
+    useEffect(() => {
         loadApiData();
     }, []);
 
@@ -33,12 +34,20 @@ const ApiData = () => {
             <div className="info-design">
                 <h2>List of Posts</h2>
                 {/* <p>{JSON.stringify(data)}</p> */}
-                {data.map((item, index)=> (
-                    <>
-                    <h6>Title: {item.title}</h6>
-                    <p>Body: {item.body}</p>
-                    <p>UserId: {item.userId}. Id: {item.id}</p>
-                    </>
+                {data.map((item, index) => (
+                    // < ShowItem 
+                    //     key={item.id} 
+                    //     title={item.title} 
+                    //     body={item.body} 
+                    //     userId={item.userId} 
+                    //     id={item.id} 
+                    // />
+                    // NOT suitable for large prop fiels/values
+                    < ShowItem 
+                    key={item.id} 
+                    {...item}
+                    // Better to use SPREAD operator
+                />
                 ))}
 
             </div>
